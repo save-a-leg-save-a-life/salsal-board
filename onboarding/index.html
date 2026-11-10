@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>SALSAL Board Onboarding</title>
+<meta name="description" content="Onboarding for new board members of the Save a Leg, Save a Life Foundation.">
+<link rel="icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1C3557;--navy2:#10233b;--red:#E63947;--red2:#c92c3a;--sky:#00AEDF;
+  --paper:#FBFCFE;--paper2:#F1F6FB;--ink:#17263a;--body:#33455b;--line:#d5dfea;
+  --side:19rem;--base:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:var(--base);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,-apple-system,"Segoe UI",sans-serif;color:var(--body);background:var(--paper);line-height:1.65}
+img{max-width:100%;display:block}
+a{color:var(--navy);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:.6rem 1rem;z-index:99}
+.skip:focus{left:1rem;top:1rem}
+
+/* ---------- sidebar ---------- */
+.side{position:fixed;inset:0 auto 0 0;width:var(--side);background:var(--navy);color:#fff;display:flex;flex-direction:column;padding:2rem 1.5rem 1.5rem;overflow-y:auto;z-index:20}
+.side .logo{width:10.5rem;margin-bottom:1.75rem}
+.label{font-size:.72rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase}
+.side .label{color:#9fdcf1}
+.prog{margin:.75rem 0 1.75rem}
+.prog .num{font-family:Fraunces,serif;font-size:2.4rem;font-weight:600;line-height:1;color:#fff;letter-spacing:-.02em}
+.prog .of{font-size:.85rem;color:#d6e2ef;margin-left:.5rem}
+.bar{height:6px;background:rgba(255,255,255,.18);border-radius:3px;margin-top:.75rem;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--sky);border-radius:3px;transition:width .4s ease}
+.steps{list-style:none;display:flex;flex-direction:column;gap:.15rem}
+.steps a{display:flex;align-items:center;gap:.8rem;padding:.55rem .6rem;border-radius:8px;color:#e4ecf5;text-decoration:none;font-size:.92rem;font-weight:500;line-height:1.3}
+.steps a:hover{background:rgba(255,255,255,.08)}
+.steps a.on{background:rgba(255,255,255,.13);color:#fff;font-weight:600}
+.steps .n{flex:none;width:1.7rem;height:1.7rem;border-radius:50%;border:2px solid rgba(255,255,255,.45);display:grid;place-items:center;font-size:.78rem;font-weight:700;color:#fff}
+.steps a.done .n{background:var(--sky);border-color:var(--sky);color:var(--navy2);font-size:0}
+.steps a.done .n::after{content:"";width:.5rem;height:.85rem;border:solid var(--navy2);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.side .foot{margin-top:auto;padding-top:1.75rem;font-size:.85rem}
+.tsize{display:flex;align-items:center;gap:.4rem;margin-bottom:1rem;color:#d6e2ef}
+.tsize span{margin-right:.35rem}
+.tsize button{width:2.4rem;height:2.4rem;border-radius:8px;border:2px solid rgba(255,255,255,.4);background:none;color:#fff;font-family:Fraunces,serif;font-weight:600;cursor:pointer;line-height:1}
+.tsize button[aria-pressed=true]{background:#fff;color:var(--navy);border-color:#fff}
+.tsize button:nth-of-type(1){font-size:.85rem}.tsize button:nth-of-type(2){font-size:1.05rem}.tsize button:nth-of-type(3){font-size:1.3rem}
+.side .foot a,.side .foot .reset{color:#d6e2ef;font-size:.85rem;display:block;margin-top:.4rem;background:none;border:0;cursor:pointer;text-decoration:underline;text-underline-offset:.2em;font-family:inherit;padding:0}
+.side .foot a:hover,.side .foot .reset:hover{color:#fff}
+
+/* ---------- main ---------- */
+main{margin-left:var(--side);position:relative;overflow:hidden}
+.wrap{max-width:46rem;margin:0 auto;padding:0 2.5rem}
+.hero{position:relative;padding:5.5rem 0 4.5rem;background:var(--paper2);border-bottom:1px solid var(--line)}
+.hero .wm{position:absolute;right:-5rem;top:1.5rem;width:21rem;opacity:.1;pointer-events:none}
+.hero .label{color:var(--red2)}
+.hero h1{font-size:3.5rem;margin:1rem 0 1.25rem;max-width:9.5em}
+.hero .lede{font-size:1.2rem;max-width:33em;color:var(--ink)}
+.hero .meta{margin-top:1rem;font-size:.95rem}
+.req{margin-top:2.25rem;border-left:5px solid var(--red);padding:.35rem 0 .35rem 1.25rem;max-width:34em}
+.req b{display:block;color:var(--navy);font-size:1.05rem}
+.req a{font-weight:600}
+
+.step{padding:4.5rem 0;border-bottom:1px solid var(--line);scroll-margin-top:0}
+.step .label{color:var(--red2)}
+.step h2{font-size:2.15rem;margin:.6rem 0 1.25rem}
+.step h3{font-family:Inter,sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0;color:var(--navy);margin:2.25rem 0 .75rem;line-height:1.35}
+.step p{max-width:36em}
+.step p+p{margin-top:.9rem}
+.short{background:var(--paper2);border-radius:12px;padding:1rem 1.25rem;color:var(--ink);font-size:1.02rem}
+.short b{color:var(--navy)}
+.quote{border-left:5px solid var(--sky);padding:.25rem 0 .25rem 1.5rem;margin:2rem 0 0;font-family:Fraunces,serif;font-size:1.4rem;line-height:1.4;color:var(--navy);font-weight:500;max-width:27em}
+.rows{margin-top:.25rem;border-top:2px solid var(--navy)}
+.rows>div{display:grid;grid-template-columns:13rem 1fr;gap:1.5rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.rows dt,.rows .t{font-weight:700;color:var(--navy)}
+.links{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;margin-top:1.25rem}
+.links a{font-weight:600}
+.links a::after,.more::after{content:" \2192"}
+
+/* supporter feature */
+.sup{position:relative;margin-top:2rem;background:var(--navy);color:#e4ecf5;border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;box-shadow:0 1px 2px rgba(16,35,59,.08),0 12px 32px rgba(16,35,59,.16)}
+.sup .price{font-family:Fraunces,serif;font-weight:600;font-size:4.75rem;line-height:.95;color:#fff;letter-spacing:-.03em}
+.sup .price small{display:block;font-family:Inter,sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#9fdcf1;margin-top:.75rem}
+.sup h3{font-family:Fraunces,serif;font-size:1.5rem;font-weight:600;color:#fff;margin:0 0 .5rem;letter-spacing:-.02em;line-height:1.15}
+.sup p{color:#e4ecf5;max-width:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3.1rem;padding:.8rem 1.6rem;border-radius:10px;font-weight:700;font-size:1.05rem;text-decoration:none;border:2px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:var(--red2)}
+.sup .acts{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:1.5rem}
+.sup .acts a.alt{color:#fff;font-weight:600}
+
+/* checklist */
+.check{margin-top:2.5rem;border-top:2px solid var(--navy);padding-top:1.25rem}
+.check .hd{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.5rem}
+.check .hd b{color:var(--navy);font-size:1.05rem}
+.check .hd span{font-size:.9rem}
+.check label{display:flex;gap:.9rem;align-items:flex-start;padding:.6rem 0;cursor:pointer;color:var(--ink)}
+.check input{appearance:none;flex:none;width:1.6rem;height:1.6rem;border:2px solid var(--navy);border-radius:6px;background:#fff;cursor:pointer;display:grid;place-items:center;margin-top:.05rem}
+.check input:checked{background:var(--navy)}
+.check input:checked::after{content:"";width:.4rem;height:.75rem;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.check input:checked+span{text-decoration:line-through;color:var(--body)}
+.done-btn{margin-top:1.25rem;background:#fff;color:var(--navy);border-color:var(--navy)}
+.done-btn:hover{background:var(--paper2)}
+.done-btn[aria-pressed=true]{background:var(--navy);color:#fff}
+
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:2px solid var(--navy)}
+summary{cursor:pointer;list-style:none;padding:1rem 2.5rem 1rem 0;font-weight:700;color:var(--navy);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:.25rem;top:.7rem;font-size:1.6rem;font-weight:400;line-height:1}
+details[open] summary::after{content:"\2212"}
+details .in{padding:0 0 1.25rem}
+.jf{width:100%;min-height:34rem;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:.75rem}
+.social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem}
+.social a{font-weight:600}
+
+.help{background:var(--navy2);color:#e4ecf5;padding:4.5rem 0}
+.help h2{color:#fff;font-size:2.15rem;margin-bottom:.75rem}
+.help p{max-width:32em}
+.help a{color:#fff;font-weight:600}
+.help .small{margin-top:2.5rem;font-size:.82rem;color:#b9c8d9;max-width:40em}
+
+/* ---------- mobile ---------- */
+.mbar{display:none}
+@media(max-width:960px){
+  .side{display:none}
+  main{margin-left:0}
+  .mbar{display:block;position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;padding:.7rem 1rem .8rem}
+  .mbar .r{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .mbar img{height:2.4rem;width:auto}
+  .mbar .pc{font-weight:600;font-size:.9rem}
+  .mbar .bar{margin-top:.6rem}
+  .wrap{padding:0 1.25rem}
+  .hero{padding:3.5rem 0 3rem}
+  .hero h1{font-size:2.6rem}
+  .hero .wm{width:13rem;right:-4rem;top:1rem}
+  .step{padding:3.5rem 0;scroll-margin-top:5rem}
+  .step h2{font-size:1.8rem}
+  .rows>div{grid-template-columns:1fr;gap:.2rem}
+  .sup{grid-template-columns:1fr;gap:1.5rem;padding:1.75rem 1.5rem}
+  .sup .price{font-size:4rem}
+  .btn{width:100%}
+  .mfoot{display:flex!important}
+}
+.mfoot{display:none;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;margin-top:2rem;font-size:.9rem}
+.mfoot button{background:none;border:0;color:#fff;text-decoration:underline;font-family:inherit;font-size:.9rem;cursor:pointer}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+
+<aside class="side" aria-label="Onboarding steps">
+  <img class="logo" src="../assets/salsal-logo-registered-white.svg" alt="Save a Leg, Save a Life Foundation">
+  <div class="label">Board onboarding</div>
+  <div class="prog" aria-live="polite">
+    <span class="num" data-pct>0%</span><span class="of" data-of>0 of 7 steps</span>
+    <div class="bar"><i data-bar></i></div>
+  </div>
+  <ol class="steps">
+    <li><a href="#s1" data-nav="s1"><span class="n">1</span>Welcome and mission</a></li>
+    <li><a href="#s2" data-nav="s2"><span class="n">2</span>Your role</a></li>
+    <li><a href="#s3" data-nav="s3"><span class="n">3</span>Become a Supporter</a></li>
+    <li><a href="#s4" data-nav="s4"><span class="n">4</span>Documents and forms</a></li>
+    <li><a href="#s5" data-nav="s5"><span class="n">5</span>Bio and headshot</a></li>
+    <li><a href="#s6" data-nav="s6"><span class="n">6</span>Calendar and contacts</a></li>
+    <li><a href="#s7" data-nav="s7"><span class="n">7</span>Stay connected</a></li>
+    <li><a href="#faq" data-nav="faq"><span class="n">?</span>Questions</a></li>
+  </ol>
+  <div class="foot">
+    <div class="tsize" role="group" aria-label="Text size"><span>Text size</span>
+      <button type="button" data-size="18" aria-label="Standard text">A</button>
+      <button type="button" data-size="20" aria-label="Large text">A</button>
+      <button type="button" data-size="23" aria-label="Largest text">A</button>
+    </div>
+    <a href="https://thesalsal.org/" target="_blank" rel="noopener">Public site: thesalsal.org</a>
+    <button class="reset" type="button" data-reset>Reset my progress</button>
+  </div>
+</aside>
+
+<div class="mbar">
+  <div class="r"><img src="../assets/salsal-logo-registered-white.svg" alt="Save a Leg, Save a Life Foundation"><span class="pc" data-of>0 of 7 steps</span></div>
+  <div class="bar"><i data-bar></i></div>
+</div>
+
+<main id="top">
+  <header class="hero">
+    <img class="wm" src="../assets/ribbon-mark.png" alt="">
+    <div class="wrap">
+      <div class="label">For the SALSAL Board of Directors</div>
+      <h1>Welcome to the SALSAL Board.</h1>
+      <p class="lede">Seven short steps take you from newly elected to ready to serve. Work through them in order, and check each one off as you go.</p>
+      <p class="meta">Most people finish in about 20 minutes. Your progress saves on this device.</p>
+      <div class="req">
+        <b>One requirement to know first</b>
+        Every board member is a current SALSAL Supporter. It takes two minutes in <a href="#s3">Step 3</a>.
+      </div>
+    </div>
+  </header>
+
+  <!-- STEP 1 -->
+  <section class="step" id="s1" data-step>
+    <div class="wrap">
+      <div class="label">Step 1</div>
+      <h2>Welcome and our mission</h2>
+      <p class="short"><b>In short:</b> Get to know what the foundation does and why your seat on the board matters.</p>
+      <p style="margin-top:1.5rem">Thank you for giving your time and expertise to limb preservation. Most amputations are preventable with the right care at the right time, and this board exists to make that care the standard.</p>
+      <blockquote class="quote">To reduce the number of lower extremity amputations and improve the quality of life of citizens afflicted with wounds and complications from diabetes and peripheral arterial disease.</blockquote>
+
+      <h3>SALSAL at a glance</h3>
+      <dl class="rows">
+        <div><dt>Who we are</dt><dd>The Save a Leg, Save a Life Foundation, a national 501(c)(3) nonprofit. Federal Tax ID 32-0467696.</dd></div>
+        <div><dt>Community screenings</dt><dd>Free screening and education events that catch peripheral arterial disease and diabetes-related wounds early.</dd></div>
+        <div><dt>Provider education</dt><dd>Webinars and resources for clinicians, plus the Harold L. Johnson Memorial Scholarship for wound care certification.</dd></div>
+        <div><dt>Patient assistance</dt><dd>Walking boots, compression socks, and diabetic shoes for patients protecting a healing limb.</dd></div>
+        <div><dt>Campaigns and advocacy</dt><dd>Time Out Before Amputation&reg; (TOBA), the White Sock Campaign&trade;, and policy work to change how amputation decisions are made.</dd></div>
+      </dl>
+      <ul class="links">
+        <li><a href="https://thesalsal.org/mission-vision/" target="_blank" rel="noopener">Mission and vision</a></li>
+        <li><a href="https://thesalsal.org/how-we-help/" target="_blank" rel="noopener">How we help</a></li>
+        <li><a href="https://thesalsal.org/board-of-directors/" target="_blank" rel="noopener">Meet the board</a></li>
+      </ul>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 3 minutes</span></div>
+        <label><input type="checkbox"><span>Read the mission and the at-a-glance summary</span></label>
+        <label><input type="checkbox"><span>Visit the board page and meet your fellow directors</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="step" id="s2" data-step>
+    <div class="wrap">
+      <div class="label">Step 2</div>
+      <h2>Your role and responsibilities</h2>
+      <p class="short"><b>In short:</b> Learn what board members do, then pick the working group where you want to contribute.</p>
+
+      <h3>What board members do</h3>
+      <dl class="rows">
+        <div><dt>Governance and oversight</dt><dd>Guide the foundation's mission, strategy, and financial health.</dd></div>
+        <div><dt>Fiduciary duty</dt><dd>Act in SALSAL's best interest with care, loyalty, and good faith.</dd></div>
+        <div><dt>Meetings and votes</dt><dd>Prepare for and attend board meetings, and respond to e-votes on time.</dd></div>
+        <div><dt>Working groups</dt><dd>Put your skills to work in a working group, such as TOBA, community screening, or education.</dd></div>
+        <div><dt>Conflict of interest</dt><dd>Sign the yearly statement and step back from any decision where you have a conflict.</dd></div>
+        <div><dt>Supporter standing</dt><dd>Keep your SALSAL Supporter membership current for as long as you serve. See Step 3.</dd></div>
+        <div><dt>Ambassadorship</dt><dd>Represent SALSAL professionally and bring its programs to your community.</dd></div>
+      </dl>
+      <p style="margin-top:1.5rem">Your term length and time commitment come from the executive board. If you have not received them yet, ask at <a href="mailto:info@thesalsal.org">info@thesalsal.org</a>.</p>
+
+      <h3>Choose your working group</h3>
+      <iframe class="jf" id="JotFormIFrame-252038701608150" title="Select your working group" loading="lazy" src="https://form.jotform.com/252038701608150" scrolling="yes"></iframe>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 5 minutes</span></div>
+        <label><input type="checkbox"><span>Review the seven core responsibilities</span></label>
+        <label><input type="checkbox"><span>Submit the working group form</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="step" id="s3" data-step>
+    <div class="wrap">
+      <div class="label">Step 3 &middot; Required</div>
+      <h2>Become a SALSAL Supporter</h2>
+      <p class="short"><b>In short:</b> Every board member must be a current SALSAL Supporter. Join online in about two minutes.</p>
+      <p style="margin-top:1.5rem">Supporters fund the screenings, scholarships, and patient assistance this board oversees. When directors are Supporters themselves, the community sees leaders who stand behind the mission, and you stay a member in good standing for your yearly conflict of interest statement.</p>
+
+      <div class="sup">
+        <div class="price">$49<small>Per year</small></div>
+        <div>
+          <h3>Supporter membership</h3>
+          <p>You receive a full-color SALSAL certificate and an enamel lapel pin to wear at meetings and events. Please allow 6 to 8 weeks for delivery.</p>
+          <div class="acts">
+            <a class="btn red" href="https://buy.stripe.com/8x2bJ1bkUcJK1OB8xx2ZO00?locale=en" target="_blank" rel="noopener">Become a Supporter</a>
+            <a class="alt more" href="https://thesalsal.org/donate/#supporter" target="_blank" rel="noopener">See it on thesalsal.org</a>
+          </div>
+        </div>
+      </div>
+
+      <h3>How it works</h3>
+      <dl class="rows">
+        <div><dt>1. Join</dt><dd>Use the button above. Checkout is handled securely by Stripe.</dd></div>
+        <div><dt>2. Keep your receipt</dt><dd>Stripe emails it to you. It is your proof of Supporter standing.</dd></div>
+        <div><dt>3. Renew each year</dt><dd>Your Supporter membership needs to stay current for as long as you serve on the board.</dd></div>
+      </dl>
+      <p style="margin-top:1.5rem">Already a Supporter this year? You are set. Check the boxes below and move on.</p>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 2 minutes</span></div>
+        <label><input type="checkbox"><span>Become a Supporter, or confirm your membership is current</span></label>
+        <label><input type="checkbox"><span>Save your receipt email</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="step" id="s4" data-step>
+    <div class="wrap">
+      <div class="label">Step 4</div>
+      <h2>Governance documents and forms</h2>
+      <p class="short"><b>In short:</b> Sign your yearly conflict of interest statement, and know where the expense form lives.</p>
+
+      <h3>What to expect</h3>
+      <dl class="rows">
+        <div><dt>Conflict of interest statement</dt><dd>Every director and officer signs it once a year. It asks whether you are a member in good standing, so finish Step 3 first. The SALSAL team emails you the signing link for the current year.</dd></div>
+        <div><dt>Bylaws and policies</dt><dd>The SALSAL team sends these with your welcome email. Ask for a copy any time at <a href="mailto:info@thesalsal.org">info@thesalsal.org</a>.</dd></div>
+        <div><dt>Board e-votes</dt><dd>Between meetings, votes arrive by email as a short form. Please respond by the date shown.</dd></div>
+      </dl>
+
+      <h3>Board tools</h3>
+      <details>
+        <summary>Expense reimbursement form</summary>
+        <div class="in">
+          <p>Use this when you have an approved board expense. Attach receipts for every item.</p>
+          <iframe class="jf" id="JotFormIFrame-252658819672068" title="Board member expense reimbursement form" loading="lazy" src="https://form.jotform.com/252658819672068" scrolling="yes"></iframe>
+        </div>
+      </details>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 5 minutes</span></div>
+        <label><input type="checkbox"><span>Sign the conflict of interest statement when the link arrives</span></label>
+        <label><input type="checkbox"><span>Read the bylaws and board policies</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="step" id="s5" data-step>
+    <div class="wrap">
+      <div class="label">Step 5</div>
+      <h2>Send your bio and headshot</h2>
+      <p class="short"><b>In short:</b> Email us a short bio and a clear portrait photo so we can add you to the board page.</p>
+
+      <h3>What to include</h3>
+      <dl class="rows">
+        <div><dt>Name and credentials</dt><dd>Exactly as you would like them shown on the website.</dd></div>
+        <div><dt>Short bio</dt><dd>About 75 to 120 words on your role, your expertise, and why limb preservation matters to you.</dd></div>
+        <div><dt>Headshot</dt><dd>A well-lit portrait, taller than it is wide, at least 1000 pixels wide. Leave some space above your head.</dd></div>
+      </dl>
+      <p style="margin-top:1.75rem"><a class="btn red" style="background:var(--navy)" href="mailto:info@thesalsal.org?subject=Board%20bio%20and%20headshot">Email your bio and headshot</a></p>
+      <p style="margin-top:.9rem">Send to <a href="mailto:info@thesalsal.org">info@thesalsal.org</a> with the photo attached.</p>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 10 minutes</span></div>
+        <label><input type="checkbox"><span>Write a 75 to 120 word bio</span></label>
+        <label><input type="checkbox"><span>Choose a portrait headshot</span></label>
+        <label><input type="checkbox"><span>Email both to the SALSAL team</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 6 -->
+  <section class="step" id="s6" data-step>
+    <div class="wrap">
+      <div class="label">Step 6</div>
+      <h2>Meeting calendar and key contacts</h2>
+      <p class="short"><b>In short:</b> Accept your board meeting invites and save the foundation's contact details.</p>
+
+      <dl class="rows" style="margin-top:2rem">
+        <div><dt>Board meetings</dt><dd>Dates arrive as calendar invites from the SALSAL team. Accept them so the meetings hold on your calendar.</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@thesalsal.org">info@thesalsal.org</a></dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+18134453857">+1 813-445-3857</a></dd></div>
+        <div><dt>Mailing address</dt><dd>4403 5th Ave NE, Bradenton, FL 34208</dd></div>
+      </dl>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 2 minutes</span></div>
+        <label><input type="checkbox"><span>Accept the board meeting calendar invites</span></label>
+        <label><input type="checkbox"><span>Save the SALSAL email and phone number</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 7 -->
+  <section class="step" id="s7" data-step>
+    <div class="wrap">
+      <div class="label">Step 7</div>
+      <h2>Stay connected with SALSAL</h2>
+      <p class="short"><b>In short:</b> Follow SALSAL on social media and join the newsletter. Sharing our posts is one of the easiest ways to help.</p>
+
+      <h3>Follow SALSAL</h3>
+      <ul class="social">
+        <li><a href="https://www.linkedin.com/company/the-save-a-leg-save-a-life-foundation/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.facebook.com/TheSALSALorg" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.instagram.com/thesalsalfoundation" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://twitter.com/thesalsalorg" target="_blank" rel="noopener">X</a></li>
+      </ul>
+
+      <h3>Join the newsletter</h3>
+      <iframe class="jf" id="JotFormIFrame-252934217187462" title="SALSAL newsletter sign-up" loading="lazy" src="https://form.jotform.com/252934217187462" scrolling="yes"></iframe>
+
+      <div class="check">
+        <div class="hd"><b>Your checklist</b><span>About 2 minutes</span></div>
+        <label><input type="checkbox"><span>Follow SALSAL on LinkedIn, Facebook, and Instagram</span></label>
+        <label><input type="checkbox"><span>Sign up for the newsletter</span></label>
+        <button class="btn done-btn" type="button" data-done aria-pressed="false">Mark this step complete</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="step" id="faq">
+    <div class="wrap">
+      <div class="label">Good to know</div>
+      <h2>Common questions</h2>
+      <details>
+        <summary>Do I have to be a Supporter to serve on the board?</summary>
+        <div class="in"><p>Yes. Every board member keeps a current SALSAL Supporter membership. It is $49 per year, and you can join in <a href="#s3">Step 3</a>.</p></div>
+      </details>
+      <details>
+        <summary>I am already a Supporter. Do I need to join again?</summary>
+        <div class="in"><p>No. If your membership is current, check the box in Step 3 and keep going. Renew it each year while you serve.</p></div>
+      </details>
+      <details>
+        <summary>Will my progress be here when I come back?</summary>
+        <div class="in"><p>Yes, as long as you return on the same device and browser. Your checkmarks are stored on your device only.</p></div>
+      </details>
+      <details>
+        <summary>Who do I contact with questions?</summary>
+        <div class="in"><p>Email <a href="mailto:info@thesalsal.org">info@thesalsal.org</a> or call <a href="tel:+18134453857">+1 813-445-3857</a>.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="help">
+    <div class="wrap">
+      <h2>Need a hand?</h2>
+      <p>The SALSAL team is glad to help with any step. Write to <a href="mailto:info@thesalsal.org">info@thesalsal.org</a>.</p>
+      <div class="mfoot">
+        <a href="https://thesalsal.org/" target="_blank" rel="noopener">Public site: thesalsal.org</a>
+        <button type="button" data-reset>Reset my progress</button>
+      </div>
+      <p class="small">The Save a Leg, Save a Life Foundation is a 501(c)(3) nonprofit organization. Federal Tax ID 32-0467696. Florida Solicitation Registration CH47375. This page is for SALSAL board members.</p>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+<script>
+(function(){
+  var KEY='salsal-board-onb-v1', TOTAL=7;
+  var state={done:{},checks:{},size:18};
+  try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s){state.done=s.done||{};state.checks=s.checks||{};state.size=s.size||18;}}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  function all(q,r){return Array.prototype.slice.call((r||document).querySelectorAll(q));}
+
+  function paint(){
+    var n=0;
+    all('[data-step]').forEach(function(sec){
+      var d=!!state.done[sec.id]; if(d)n++;
+      var b=sec.querySelector('[data-done]');
+      b.setAttribute('aria-pressed',d?'true':'false');
+      b.textContent=d?'Step complete':'Mark this step complete';
+      var nav=document.querySelector('[data-nav="'+sec.id+'"]'); if(nav)nav.classList.toggle('done',d);
+    });
+    var pct=Math.round(n/TOTAL*100);
+    all('[data-pct]').forEach(function(e){e.textContent=pct+'%';});
+    all('[data-of]').forEach(function(e){e.textContent=n+' of '+TOTAL+' steps';});
+    all('[data-bar]').forEach(function(e){e.style.width=pct+'%';});
+    all('[data-size]').forEach(function(b){b.setAttribute('aria-pressed',String(+b.dataset.size===state.size));});
+    document.documentElement.style.setProperty('--base',state.size+'px');
+  }
+
+  all('[data-step]').forEach(function(sec){
+    all('input[type=checkbox]',sec).forEach(function(c,i){
+      var id=sec.id+'-'+i; c.checked=!!state.checks[id];
+      c.addEventListener('change',function(){state.checks[id]=c.checked;save();});
+    });
+    sec.querySelector('[data-done]').addEventListener('click',function(){
+      state.done[sec.id]=!state.done[sec.id];
+      if(state.done[sec.id]){all('input[type=checkbox]',sec).forEach(function(c,i){c.checked=true;state.checks[sec.id+'-'+i]=true;});}
+      save();paint();
+    });
+  });
+  all('[data-size]').forEach(function(b){b.addEventListener('click',function(){state.size=+b.dataset.size;save();paint();});});
+  all('[data-reset]').forEach(function(b){b.addEventListener('click',function(){
+    if(!confirm('Clear all of your checkmarks and start over?'))return;
+    state.done={};state.checks={};save();
+    all('input[type=checkbox]').forEach(function(c){c.checked=false;});paint();window.scrollTo(0,0);
+  });});
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){all('[data-nav]').forEach(function(a){a.classList.toggle('on',a.dataset.nav===e.target.id);});}
+    });},{rootMargin:'-30% 0px -60% 0px'});
+    all('.step').forEach(function(s){io.observe(s);});
+  }
+  ['252038701608150','252658819672068','252934217187462'].forEach(function(id){
+    try{window.jotformEmbedHandler("iframe[id='JotFormIFrame-"+id+"']","https://form.jotform.com/");}catch(e){}
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
