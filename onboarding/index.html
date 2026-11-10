@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; frame-src https://form.jotform.com https://*.jotform.com; base-uri 'none'; form-action 'none'">
 <title>SALSAL Board Onboarding</title>
 <meta name="description" content="Onboarding for new board members of the Save a Leg, Save a Life Foundation.">
 <link rel="icon" href="../assets/favicon.ico">
@@ -116,7 +117,7 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";position:absolute;right:.25rem;top:.7rem;font-size:1.6rem;font-weight:400;line-height:1}
 details[open] summary::after{content:"\2212"}
 details .in{padding:0 0 1.25rem}
-.jf{width:100%;min-height:34rem;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:.75rem}
+.jf{width:100%;height:40rem;border:1px solid var(--line);border-radius:12px;background:#fff;margin-top:.75rem}
 .social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.75rem}
 .social a{font-weight:600}
 
@@ -450,7 +451,6 @@ details .in{padding:0 0 1.25rem}
   </section>
 </main>
 
-<script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
 <script>
 (function(){
   var KEY='salsal-board-onb-v1', TOTAL=7;
@@ -500,9 +500,6 @@ details .in{padding:0 0 1.25rem}
     });},{rootMargin:'-30% 0px -60% 0px'});
     all('.step').forEach(function(s){io.observe(s);});
   }
-  ['252038701608150','252658819672068','252934217187462'].forEach(function(id){
-    try{window.jotformEmbedHandler("iframe[id='JotFormIFrame-"+id+"']","https://form.jotform.com/");}catch(e){}
-  });
   paint();
 })();
 </script>
